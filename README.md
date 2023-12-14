@@ -1,6 +1,6 @@
 # Artificial Intelligence - iPhone Price Predictor
 
-## Technologies: Python, React, SCSS, PostreSQL,Tensorflow (Keras), Scikit-Learn, Dash, JavaScript. 
+## Technologies: Python, React, SCSS, PostgreSQL, Tensorflow (Keras), Scikit-Learn, Dash, JavaScript. 
 
 ## Description:
 
@@ -18,4 +18,4 @@
 
 ### A variety of predictive methods will be tested (such as Linear Regression, Lasso Regression, etc). The best one will be chosen for the application. 
 ### The metrics for model evaluation will be determined by the *type* of predictive model that is chosen (such as Mean Absolute Error, R-Squared, etc). 
-### The project includes PostreSQL commands for creating and populating a database of iPhone prices from 2007 to 2023. This data will be imported by Python as a Pandas DataFrame, for processing, analysis, training, etc.
+### The project includes PostgreSQL commands for creating and populating a database of iPhone prices from 2007 to 2023. This data will be imported by Python as a Pandas DataFrame, for processing, analysis, training, etc.
