@@ -1,5 +1,7 @@
 CREATE DATABASE iphone_prices;
 
+\c iphone_prices;
+
 CREATE TABLE models (
     date DATE NOT NULL, -- YYYY-MM-DD
     version TEXT, -- e.g. "4" or "X"
