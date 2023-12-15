@@ -8,15 +8,13 @@ dbpassword = open(pw_filepath, 'r').read()
 
 conn = psycopg2.connect(
     host = "localhost",
-    dbname = "postgres",
+    dbname = "iphone_prices",
     user = "postgres",
     password = dbpassword,
     port = 5432
 )
 
 cur = conn.cursor()
-
-
 
 conn.commit()
 
