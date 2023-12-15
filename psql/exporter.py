@@ -16,6 +16,10 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
+cur.execute("SELECT * FROM models;")
+
+fields = [field[0] for field in cur.description]
+
 conn.commit()
 
 cur.close()
