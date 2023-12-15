@@ -29,3 +29,4 @@ for record in cur.fetchall():
 cur.close()
 conn.close()
 
+iphones.to_csv("./iphone_releases.csv", index=False)
