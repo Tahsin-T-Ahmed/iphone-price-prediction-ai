@@ -12,7 +12,8 @@
 ##### Large (Checkbox): Indicates if the iPhone is a variant of larger size, such as "Plus" or "Max". 
 ##### Memory (Menu): Specifies the storage capacity of the iPhone. 
 
-### Alongside the price will be visual illustrations of similar iPhones released since 2007, matching the details of the user's input Example: If the user wants to predict a price for an iPhone "Pro Max" in the year 2040, they will be presented with the predicted price and graph(s) of previous iPhones of the "Pro Max" or "S Plus" variants. 
+### Alongside the price will be visual illustrations of similar iPhones released since 2007, matching the details of the user's input
+### Example: If the user wants to predict a price for an iPhone "Pro Max" in the year 2040, they will be presented with the predicted price and graph(s) of previous iPhones of the "Pro Max" or "S Plus" variants. 
 
 ## Model Building & Training:
 
