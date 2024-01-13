@@ -1,6 +1,6 @@
 # Artificial Intelligence - iPhone Price Predictor
 
-## Technologies: Python, React, SCSS, PostgreSQL, Tensorflow (Keras), Scikit-Learn, Dash, JavaScript. 
+## Technologies: Python, React, SCSS, PostgreSQL, Scikit-Learn, Dash, JavaScript. 
 
 ## Description:
 
