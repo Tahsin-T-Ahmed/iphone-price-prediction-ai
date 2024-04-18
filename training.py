@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import joblib
 from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression
 
 data_path = "./iphones_linreg_output.csv"
 
@@ -23,3 +24,5 @@ scaler = StandardScaler()
 scaler.fit(X[numerical_features])
 X[numerical_features] = scaler.fit_transform(X[numerical_features])
 
+model = LinearRegression()
+model.fit(X, y)
