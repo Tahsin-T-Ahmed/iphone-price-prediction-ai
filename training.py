@@ -22,7 +22,7 @@ y = iphones["PRICE"]
 
 scaler = StandardScaler()
 scaler.fit(X[numerical_features])
-X[numerical_features] = scaler.fit_transform(X[numerical_features])
+X.loc[:, numerical_features] = scaler.fit_transform(X.loc[:, numerical_features])
 
 model = LinearRegression()
 model.fit(X, y)
