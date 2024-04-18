@@ -17,11 +17,11 @@ storage_dummies = [gb for gb in iphones.columns if "GB" in gb]
 numerical_features = ["YEAR"]
 binary_features = ["SPECIAL", "LARGE", *storage_dummies]
 
-X = iphones[numerical_features + binary_features]
+X = iphones[numerical_features + binary_features].astype(float)
 y = iphones["PRICE"]
 
 scaler = StandardScaler()
-scaler.fit(X[numerical_features])
+scaler.fit(X.loc[:, numerical_features])
 X.loc[:, numerical_features] = scaler.fit_transform(X.loc[:, numerical_features])
 
 model = LinearRegression()
