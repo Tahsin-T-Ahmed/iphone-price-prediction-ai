@@ -18,6 +18,7 @@ numerical_features = ["YEAR"]
 binary_features = ["SPECIAL", "LARGE", *storage_dummies]
 
 X = iphones[numerical_features + binary_features].astype(float)
+X.loc[:, binary_features] = X.loc[:, binary_features].astype(int)
 y = iphones["PRICE"]
 
 scaler = StandardScaler()
