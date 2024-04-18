@@ -26,3 +26,5 @@ X[numerical_features] = scaler.fit_transform(X[numerical_features])
 
 model = LinearRegression()
 model.fit(X, y)
+
+joblib.dump(scaler, "./scaler.joblib")
