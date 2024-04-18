@@ -28,3 +28,4 @@ model = LinearRegression()
 model.fit(X, y)
 
 joblib.dump(scaler, "./scaler.joblib")
+joblib.dump(model, "./iphones-linear-regression.pkl")
