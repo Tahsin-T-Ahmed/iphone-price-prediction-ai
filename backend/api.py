@@ -28,7 +28,7 @@ def serve_prediction():
 
     print(df)
 
-    return request.json
+    return data
 
 if "__main__" == __name__:
     app.run(debug=True)
