@@ -32,6 +32,9 @@ def serve_prediction():
     df["LARGE"] = data["LARGE"]
     df[f"GB_{data['MEMORY']}"] = 1
 
+    #cast "YEAR" feature as float type
+    df["YEAR"] = df["YEAR"].astype(float)
+
     #standardize "YEAR" feature for modeling
     df.loc[:, "YEAR"] = scaler.transform(pd.DataFrame(df.loc[:, "YEAR"]))
 
