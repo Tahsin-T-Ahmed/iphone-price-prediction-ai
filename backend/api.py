@@ -20,6 +20,7 @@ def serve_prediction():
     #cast DataFrame as int, for modeling and scaling purposes
     df = df.astype(int)
 
+    #populate row with POST data 
     df["YEAR"] = data["YEAR"]
     df["SPECIAL"] = data["SPECIAL"]
     df["LARGE"] = data["LARGE"]
