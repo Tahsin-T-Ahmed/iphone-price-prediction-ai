@@ -8,6 +8,7 @@ CORS(app)
 
 @app.route("/")
 def serve_pred():
+    df = pd.DataFrame(columns=["YEAR", "SPECIAL", "LARGE", *[f"GB_{2**i}" for i in range(6, 10+1)]])
 
     return "Placeholder"
 
