@@ -10,7 +10,7 @@ CORS(app)
 @app.route("/", methods=["POST"])
 def serve_prediction():
     data = request.json
-
+    
     #initialize DataFrame
     df = pd.DataFrame(columns=["YEAR", "SPECIAL", "LARGE", *[f"GB_{2**i}" for i in range(6, 10+1)]])
 
@@ -19,6 +19,11 @@ def serve_prediction():
 
     #cast DataFrame as int, for modeling and scaling purposes
     df = df.astype(int)
+
+    df["YEAR"] = data["YEAR"]
+    df["SPECIAL"] = data["SPECIAL"]
+    df["LARGE"] = data["LARGE"]
+    df[f"GB_{data['MEMORY']}"] = 1
 
     print(df)
 
