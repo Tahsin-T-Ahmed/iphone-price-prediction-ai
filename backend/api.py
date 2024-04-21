@@ -38,9 +38,12 @@ def serve_prediction():
     #standardize "YEAR" feature for modeling
     df.loc[:, "YEAR"] = scaler.transform(pd.DataFrame(df.loc[:, "YEAR"]))
 
+    #produce prediction
+    pred = model.predict(pd.DataFrame(df))
+
     print(df)
 
-    return data
+    return str(pred[0])
 
 if "__main__" == __name__:
     app.run(debug=True)
