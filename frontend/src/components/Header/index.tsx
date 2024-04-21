@@ -1,10 +1,11 @@
 import styles from "./Header.module.scss"
+import { BsApple } from "react-icons/bs";
 
 const Header = () => {
   return (
     <header className={styles.name}>
-        <h1>iPhone4Cast AI</h1>
-        <p>Predicting iPhone prices with Machine Learning</p>
+      <h1><BsApple className={styles.logo}/>iPhone4Cast AI</h1>
+      <p>Predicting iPhone prices with Machine Learning</p>
     </header>
   )
 }
