@@ -7,6 +7,12 @@ import joblib
 app = Flask(__name__)
 CORS(app)
 
+#load predictive model (linear regression)
+model = joblib.load("./iphones-linear-regression.pkl")
+
+#load standard scaler for model
+scaler = joblib.load("./scaler.joblib")
+
 @app.route("/", methods=["POST"])
 def serve_prediction():
     data = request.json
