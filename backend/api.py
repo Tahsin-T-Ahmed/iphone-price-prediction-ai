@@ -15,6 +15,11 @@ def serve_pred():
     #populate a row with zeroes
     df.loc[len(df), :] = np.zeros(len(df.columns))
 
+    #cast DataFrame as int, for modeling and scaling purposes
+    df = df.astype(int)
+
+    print(df)
+
     return request.json
 
 if "__main__" == __name__:
