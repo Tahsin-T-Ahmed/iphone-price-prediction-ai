@@ -10,6 +10,7 @@ CORS(app)
 @app.route("/", methods=["POST"])
 def serve_pred():
     df = pd.DataFrame(columns=["YEAR", "SPECIAL", "LARGE", *[f"GB_{2**i}" for i in range(6, 10+1)]])
+    df.loc[len(df), :] = np.zeros(len(df.columns))
 
     return request.json
 
