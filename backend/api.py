@@ -9,7 +9,10 @@ CORS(app)
 
 @app.route("/", methods=["POST"])
 def serve_pred():
+    #initialize DataFrame
     df = pd.DataFrame(columns=["YEAR", "SPECIAL", "LARGE", *[f"GB_{2**i}" for i in range(6, 10+1)]])
+
+    #populate a row with zeroes
     df.loc[len(df), :] = np.zeros(len(df.columns))
 
     return request.json
