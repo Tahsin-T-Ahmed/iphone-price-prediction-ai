@@ -1,2 +1,4 @@
 password.txt
 *.csv
+/backend/.venv
+/backend/__pycache__
