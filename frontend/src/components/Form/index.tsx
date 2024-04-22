@@ -12,12 +12,12 @@ const Form = () => {
             <li>
                 <label>Special Edition</label>
                 <p className={styles.detail}>S, Pro, etc</p>
-                <input type="number" />
+                <input type="checkbox" />
             </li>
             <li>
                 <label>Large Size</label>
                 <p className={styles.detail}>Plus, Max, etc</p>
-                <input type="number" />
+                <input type="checkbox" />
             </li>
             <li>
                 <input type="radio" id="GB32"/>
