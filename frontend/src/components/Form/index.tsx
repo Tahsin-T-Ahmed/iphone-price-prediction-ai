@@ -24,20 +24,24 @@ const Form = () => {
             <li>
                 <input type="radio" id="GB32"/>
                 <label htmlFor="GB32">32 GB</label>
-
+            </li>
+            <li>
                 <input type="radio" id="GB64"/>
                 <label htmlFor="GB64">64 GB</label>
-
+            </li>
+            <li>
                 <input type="radio" id="GB128"/>
                 <label htmlFor="GB128">128 GB</label>
-
+            </li>
+            <li>
                 <input type="radio" id="GB256"/>
                 <label htmlFor="GB256">256 GB</label>
-                
+            </li>
+            <li>                
                 <input type="radio" id="GB512"/>
                 <label htmlFor="GB512">512 GB</label>
-
-                
+            </li>
+            <li>                
                 <input type="radio" id="GB1024"/>
                 <label htmlFor="GB1024">1024 GB</label>
             </li>
