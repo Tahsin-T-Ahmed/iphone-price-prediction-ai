@@ -3,7 +3,7 @@ import styles from "./Form.module.scss"
 
 const Form = () => {
   return (
-    <form className={"glassmorph"}>
+    <form className={"glassmorph " + styles.form}>
         <ul>
             <li>
                 <label>Year:</label>
@@ -19,6 +19,8 @@ const Form = () => {
                 <p className={styles.detail}>Plus, Max, etc</p>
                 <input type="checkbox" />
             </li>
+        </ul>
+        <ul>
             <li>
                 <input type="radio" id="GB32"/>
                 <label htmlFor="GB32">32 GB</label>
