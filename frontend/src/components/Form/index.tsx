@@ -7,7 +7,7 @@ const memoryItems = [
     {value: 128, label: "128 GB", id: "GB_128"},
     {value: 256, label: "256 GB", id: "GB_256"},
     {value: 512, label: "512 GB", id: "GB_512"},
-    {value: 1024, label: "1024 GB", id: "GB_1024"},
+    {value: 1024, label: "1024 GB (1 TB)", id: "GB_1024"},
 ]
 
 const Form = () => {
@@ -30,30 +30,12 @@ const Form = () => {
             </li>
         </ul>
         <ul>
-            <li>
-                <input type="radio" id="GB32"/>
-                <label htmlFor="GB32">32 GB</label>
-            </li>
-            <li>
-                <input type="radio" id="GB64"/>
-                <label htmlFor="GB64">64 GB</label>
-            </li>
-            <li>
-                <input type="radio" id="GB128"/>
-                <label htmlFor="GB128">128 GB</label>
-            </li>
-            <li>
-                <input type="radio" id="GB256"/>
-                <label htmlFor="GB256">256 GB</label>
-            </li>
-            <li>                
-                <input type="radio" id="GB512"/>
-                <label htmlFor="GB512">512 GB</label>
-            </li>
-            <li>                
-                <input type="radio" id="GB1024"/>
-                <label htmlFor="GB1024">1024 GB</label>
-            </li>
+            {memoryItems.map((item) => (
+                <li>
+                    <input type="radio" id={item.id} value={item.value} name="memory-item"/>
+                    <label htmlFor={item.id}>{item.label}</label>
+                </li>
+            ))}
         </ul>
     </form>
   )
