@@ -56,7 +56,7 @@ const Form = () => {
             <ul>
                 {memoryItems.map((item) => (
                     <li>
-                        <input type="radio" id={item.id} value={item.value} name="memory-item"/>
+                        <input type="radio" id={item.id} value={item.value} name="memory-item" checked={item.value === 32}/>
                         <label htmlFor={item.id}>{item.label}</label>
                     </li>
                 ))}
