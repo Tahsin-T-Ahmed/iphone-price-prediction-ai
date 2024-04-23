@@ -34,17 +34,23 @@ const Form = () => {
             <ul>
                 <li>
                     <label>Year:</label>
-                    <input type="number" />
+                    <input type="number" name="year"/>
                 </li>
                 <li>
                     <label>Special Edition</label>
                     <p className={styles.detail}>S, Pro, etc</p>
-                    <input type="checkbox" />
+                    <input type="radio" value="yes" name="special" id="special-yes" checked/>
+                    <label htmlFor="special-yes">Yes</label>
+                    <input type="radio" value="no" name="special" id="special-no"/>
+                    <label htmlFor="special-no">No</label>
                 </li>
                 <li>
                     <label>Large Size</label>
                     <p className={styles.detail}>Plus, Max, etc</p>
-                    <input type="checkbox" />
+                    <input type="radio" value="yes" name="large" id="large-yes" checked/>
+                    <label htmlFor="large-yes">Yes</label>
+                    <input type="radio" value="no" name="large" id="large-no"/>
+                    <label htmlFor="large-no">No</label>
                 </li>
             </ul>
             <ul>
