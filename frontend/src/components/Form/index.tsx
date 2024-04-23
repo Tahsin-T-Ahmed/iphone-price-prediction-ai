@@ -1,3 +1,4 @@
+"use client"
 import "@/app/globals.scss"
 import styles from "./Form.module.scss"
 
@@ -11,34 +12,52 @@ const memoryItems = [
 ]
 
 const Form = () => {
-  return (
-    <form className={"glassmorph " + styles.form}>
-        <ul>
-            <li>
-                <label>Year:</label>
-                <input type="number" />
-            </li>
-            <li>
-                <label>Special Edition</label>
-                <p className={styles.detail}>S, Pro, etc</p>
-                <input type="checkbox" />
-            </li>
-            <li>
-                <label>Large Size</label>
-                <p className={styles.detail}>Plus, Max, etc</p>
-                <input type="checkbox" />
-            </li>
-        </ul>
-        <ul>
-            {memoryItems.map((item) => (
+
+    function handleSubmit(evt) {
+        evt.preventDefault()
+
+        // const data = fetch("http://127.0.0.1:5000/", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         YEAR: evt
+        //     })
+        // })
+
+        console.log(evt)
+    }
+
+    return (
+        <form onSubmit={handleSubmit} className={"glassmorph " + styles.form}>
+            <ul>
                 <li>
-                    <input type="radio" id={item.id} value={item.value} name="memory-item"/>
-                    <label htmlFor={item.id}>{item.label}</label>
+                    <label>Year:</label>
+                    <input type="number" />
                 </li>
-            ))}
-        </ul>
-    </form>
-  )
+                <li>
+                    <label>Special Edition</label>
+                    <p className={styles.detail}>S, Pro, etc</p>
+                    <input type="checkbox" />
+                </li>
+                <li>
+                    <label>Large Size</label>
+                    <p className={styles.detail}>Plus, Max, etc</p>
+                    <input type="checkbox" />
+                </li>
+            </ul>
+            <ul>
+                {memoryItems.map((item) => (
+                    <li>
+                        <input type="radio" id={item.id} value={item.value} name="memory-item"/>
+                        <label htmlFor={item.id}>{item.label}</label>
+                    </li>
+                ))}
+            </ul>
+            <button type="submit">GO</button>
+        </form>
+    )
 }
 
 export default Form
