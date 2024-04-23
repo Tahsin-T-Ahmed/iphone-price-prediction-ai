@@ -1,6 +1,15 @@
 import "@/app/globals.scss"
 import styles from "./Form.module.scss"
 
+const memoryItems = [
+    {value: 32, label: "32 GB", id: "GB_32"},
+    {value: 64, label: "64 GB", id: "GB_64"},
+    {value: 128, label: "128 GB", id: "GB_128"},
+    {value: 256, label: "256 GB", id: "GB_256"},
+    {value: 512, label: "512 GB", id: "GB_512"},
+    {value: 1024, label: "1024 GB", id: "GB_1024"},
+]
+
 const Form = () => {
   return (
     <form className={"glassmorph " + styles.form}>
