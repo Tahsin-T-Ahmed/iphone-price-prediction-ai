@@ -61,7 +61,7 @@ const Form = () => {
                     </li>
                 ))}
             </ul>
-            <button type="submit">GO</button>
+            <button type="submit" className={"blue-button "}>GO</button>
         </form>
     )
 }

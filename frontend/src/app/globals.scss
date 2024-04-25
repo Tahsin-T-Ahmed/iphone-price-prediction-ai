@@ -17,3 +17,20 @@ body {
     border-radius: 2rem;
     padding: 1.5rem;
 }
+
+.blue-button {
+    color: white;
+    background-color: #0088CC;
+    border: none;
+    transition: 100ms;
+
+    &:hover {
+        background-color: #0099DD;
+        transform: scale(1.03);
+    }
+
+    &:active {
+        background-color: #00BBFF;
+        transform: scale(1.04);
+    }
+}
