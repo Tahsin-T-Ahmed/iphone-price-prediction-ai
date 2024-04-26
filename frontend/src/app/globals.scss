@@ -27,12 +27,12 @@ body {
     &.blue {
         &:hover {
             background-color: #0099DD;
-            transform: scale(1.02);
+            transform: scaleX(1.02) scaleY(1.1);
         }
 
         &:active {
             background-color: #00BBFF;
-            transform: scale(1.03);
+            transform: scaleX(1.03) scaleY(1.2);
         }
     }
 }
