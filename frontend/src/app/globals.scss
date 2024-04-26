@@ -20,19 +20,25 @@ body {
 
 .btn {
     color: white;
-    background-color: #0088CC;
     border: none;
     transition: 100ms;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    color: #000000;
+}
 
-    &.blue {
-        &:hover {
-            background-color: #0099DD;
-            transform: scaleX(1.02) scaleY(1.1);
-        }
+.blue {
+    background-color: #0088CC;
+    color: white;
+    
+    &:hover {
+        background-color: #0099DD;
+        transform: scaleX(1.02) scaleY(1.1);
+    }
 
-        &:active {
-            background-color: #00BBFF;
-            transform: scaleX(1.03) scaleY(1.2);
-        }
+    &:active {
+        background-color: #00BBFF;
+        transform: scaleX(1.03) scaleY(1.2);
     }
 }
