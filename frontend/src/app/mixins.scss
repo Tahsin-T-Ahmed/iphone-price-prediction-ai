@@ -1,0 +1,19 @@
+@mixin button {    
+    color: white;
+    border: none;
+    transition: 100ms;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    color: #000000;
+}
+
+@mixin button-selected {    
+    background-color: #0088CC;
+    color: white;
+
+    &:hover {
+        background-color: #0099DD;
+        transform: scaleX(1.02) scaleY(1.1);
+    }
+}
