@@ -40,28 +40,28 @@ const Form = () => {
                     <label>Special Edition</label>
                     <p className={styles.detail}>S, Pro, etc</p>
                     <input type="radio" value="yes" name="special" id="special-yes" defaultChecked/>
-                    <label htmlFor="special-yes">Yes</label>
+                    <label className={"btn blue"} htmlFor="special-yes">Yes</label>
                     <input type="radio" value="no" name="special" id="special-no"/>
-                    <label htmlFor="special-no">No</label>
+                    <label className={"btn blue"} htmlFor="special-no">No</label>
                 </li>
                 <li>
                     <label>Large Size</label>
                     <p className={styles.detail}>Plus, Max, etc</p>
                     <input type="radio" value="yes" name="large" id="large-yes" defaultChecked/>
-                    <label htmlFor="large-yes">Yes</label>
+                    <label className={"btn blue"} htmlFor="large-yes">Yes</label>
                     <input type="radio" value="no" name="large" id="large-no"/>
-                    <label htmlFor="large-no">No</label>
+                    <label className={"btn blue"} htmlFor="large-no">No</label>
                 </li>
             </ul>
             <ul>
                 {memoryItems.map((item) => (
                     <li>
                         <input type="radio" id={item.id} value={item.value} name="memory-item" defaultChecked={item.value === 32}/>
-                        <label htmlFor={item.id}>{item.label}</label>
+                        <label className={"btn blue"} htmlFor={item.id}>{item.label}</label>
                     </li>
                 ))}
             </ul>
-            <button type="submit" className={"blue btn "}>GO</button>
+            <button type="submit" className={"btn blue"}>GO</button>
         </form>
     )
 }
