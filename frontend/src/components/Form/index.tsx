@@ -64,7 +64,9 @@ const Form = () => {
                     </li>
                 ))}
             </ul>
-            <button type="submit" className={"btn blue"}>GO</button>
+            <button type="submit" className={"btn blue"} style={{
+                marginTop: "2rem"
+            }}>GO</button>
         </form>
     )
 }

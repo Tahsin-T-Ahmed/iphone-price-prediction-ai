@@ -14,6 +14,13 @@
         justify-content: space-between;
         // gap: 1rem;
 
+        &:first-child {
+            input[type=radio] + label {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
         &:nth-child(2) { //memory capacity menu
             li {
                 text-align: center;
