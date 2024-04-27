@@ -23,9 +23,10 @@ export default function Home() {
   <main style={{
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "center"
+    justifyContent: "center",
+    gap: "2rem"
   }}>
-    <Form setFormData={setFormData} sendToParent={handleFormReturn}/>
+    <Form setFormData={setFormData}/>
     <Result formData={formData}/>
     </main>
     </>
