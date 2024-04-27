@@ -13,20 +13,23 @@ const memoryItems = [
 
 const Form = () => {
 
-    function handleSubmit(evt) {
+    async function handleSubmit(evt) {
         evt.preventDefault()
 
-        // const data = fetch("http://127.0.0.1:5000/", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         YEAR: evt
-        //     })
-        // })
+        const data = await fetch("http://127.0.0.1:5000/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                YEAR: evt.target.year.value,
+                SPECIAL: Number(evt.target.special.value === "yes") ? 1 : 0, 
+                LARGE: Number(evt.target.large.value === "yes") ? 1 : 0,
+                MEMORY: evt.target["memory-item"].value
+            })
+        }).then(res => res.text())
 
-        console.log(evt)
+        alert(data)
     }
 
     const currentDate = new Date();
