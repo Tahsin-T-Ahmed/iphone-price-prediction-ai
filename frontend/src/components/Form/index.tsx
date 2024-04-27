@@ -1,4 +1,5 @@
 "use client"
+import { useState } from "react"
 import "@/app/globals.scss"
 import styles from "./Form.module.scss"
 
@@ -11,10 +12,17 @@ const memoryItems = [
     {value: 1024, label: "1024 GB (1 TB)", id: "GB_1024"},
 ]
 
-const Form = () => {
+const Form = ({setFormData}) => {
 
     async function handleSubmit(evt) {
         evt.preventDefault()
+
+        const formData = {
+            year: evt.target.year.value,
+            special: Number(evt.target.special.value === "yes") ? 1 : 0,
+            large: Number(evt.target.large.value === "yes") ? 1 : 0,
+            memory: evt.target["memory-item"].value
+        }
 
         const data = await fetch("http://127.0.0.1:5000/", {
             method: "POST",
@@ -22,16 +30,20 @@ const Form = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                year: evt.target.year.value,
-                special: Number(evt.target.special.value === "yes") ? 1 : 0, 
-                large: Number(evt.target.large.value === "yes") ? 1 : 0,
-                memory: evt.target["memory-item"].value
+                year: formData.year,
+                special: formData.special,
+                large: formData.large,
+                memory: formData.memory 
             })
         }).then(res => res.text())
 
         let result = Math.floor(data * 100) / 100
 
-        alert(result)
+        formData.price = result 
+
+        setFormData(formData)
+
+        // alert(result)
     }
 
     const currentDate = new Date();

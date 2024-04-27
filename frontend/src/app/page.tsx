@@ -1,7 +1,22 @@
+"use client"
+import { useState } from "react"
 import Header from "@/components/Header"
 import Form from "@/components/Form"
+import Result from "@/components/Result"
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    year: null,
+    special: null,
+    large: null,
+    memory: null,
+    price: null
+  })
+
+  function handleFormReturn(data) {
+    setFormData(data)
+  }
+  
   return (
     <>
     <Header />
@@ -10,7 +25,8 @@ export default function Home() {
     flexWrap: "wrap",
     justifyContent: "center"
   }}>
-      <Form />
+    <Form setFormData={setFormData} sendToParent={handleFormReturn}/>
+    <Result formData={formData}/>
     </main>
     </>
   );
