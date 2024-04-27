@@ -29,7 +29,9 @@ const Form = () => {
             })
         }).then(res => res.text())
 
-        alert(data)
+        let result = parseInt(data)
+
+        alert(result)
     }
 
     const currentDate = new Date();
@@ -39,7 +41,14 @@ const Form = () => {
             <ul>
                 <li>
                     <label className={styles.feature}>Year:</label>
-                    <input type="number" name="year" placeholder="YYYY" defaultValue={currentDate.getFullYear() + 1}/>
+                    <input type="number" 
+                    name="year" 
+                    placeholder="YYYY" 
+                    defaultValue={currentDate.getFullYear() + 1}
+                    style={{
+                        fontSize: "1rem",
+                    }}
+                    />
                 </li>
                 <li>
                     <label className={styles.feature}>Special Edition</label>
