@@ -22,10 +22,10 @@ const Form = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                YEAR: evt.target.year.value,
-                SPECIAL: Number(evt.target.special.value === "yes") ? 1 : 0, 
-                LARGE: Number(evt.target.large.value === "yes") ? 1 : 0,
-                MEMORY: evt.target["memory-item"].value
+                year: evt.target.year.value,
+                special: Number(evt.target.special.value === "yes") ? 1 : 0, 
+                large: Number(evt.target.large.value === "yes") ? 1 : 0,
+                memory: evt.target["memory-item"].value
             })
         }).then(res => res.text())
 
