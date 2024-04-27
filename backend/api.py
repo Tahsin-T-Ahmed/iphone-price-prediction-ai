@@ -30,7 +30,12 @@ def serve_prediction():
     df["YEAR"] = data["YEAR"]
     df["SPECIAL"] = data["SPECIAL"]
     df["LARGE"] = data["LARGE"]
-    df[f"GB_{data['MEMORY']}"] = 1
+
+    #cast MEMORY input as int
+    data["MEMORY"] = int(data["MEMORY"])
+
+    if data["MEMORY"] != 32:
+        df[f"GB_{data['MEMORY']}"] = 1
 
     #cast "YEAR" feature as float type
     df["YEAR"] = df["YEAR"].astype(float)
