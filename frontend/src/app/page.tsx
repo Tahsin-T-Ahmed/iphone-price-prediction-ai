@@ -10,7 +10,8 @@ export default function Home() {
     special: null,
     large: null,
     memory: null,
-    price: null
+    price: null,
+    graph: null
   })
 
   function handleFormReturn(data) {
@@ -23,8 +24,8 @@ export default function Home() {
   <main style={{
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "center",
-    gap: "2rem"
+    justifyContent: "space-evenly",
+
   }}>
     <Form setFormData={setFormData}/>
     <Result formData={formData}/>
