@@ -27,15 +27,15 @@ def serve_prediction():
     df = df.astype(int)
 
     #populate row with POST data 
-    df["YEAR"] = data["YEAR"]
-    df["SPECIAL"] = data["SPECIAL"]
-    df["LARGE"] = data["LARGE"]
+    df["YEAR"] = data["year"]
+    df["SPECIAL"] = data["special"]
+    df["LARGE"] = data["large"]
 
     #cast MEMORY input as int
-    data["MEMORY"] = int(data["MEMORY"])
+    data["memory"] = int(data["memory"])
 
-    if data["MEMORY"] != 32:
-        df[f"GB_{data['MEMORY']}"] = 1
+    if data["memory"] != 32:
+        df[f"GB_{data['memory']}"] = 1
 
     #cast "YEAR" feature as float type
     df["YEAR"] = df["YEAR"].astype(float)
