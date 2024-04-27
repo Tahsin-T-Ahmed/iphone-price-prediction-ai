@@ -59,7 +59,7 @@ const Form = () => {
                     <li>
                         <input type="radio" id={item.id} value={item.value} name="memory-item" defaultChecked={item.value === 32}/>
                         <label htmlFor={item.id} style={{
-                            borderRadius: (item.value === 32 ? "1rem 1rem 0 0" : (item.value === 1024 && "0 0 1rem 1rem"))
+                            borderRadius: (item.value === 32 ? "1rem 1rem 0 0" : (item.value === 1024 ? "0 0 1rem 1rem" : "0px"))
                         }}>{item.label}</label>
                     </li>
                 ))}
