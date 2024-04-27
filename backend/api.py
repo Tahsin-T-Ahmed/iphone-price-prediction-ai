@@ -13,7 +13,7 @@ model = joblib.load("./iphones-linear-regression.pkl")
 #load standard scaler for model
 scaler = joblib.load("./scaler.joblib")
 
-@app.route("/", methods=["POST"])
+@app.route("/pred", methods=["POST"])
 def serve_prediction():
     data = request.json
     
