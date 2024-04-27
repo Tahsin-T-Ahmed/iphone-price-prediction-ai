@@ -33,11 +33,11 @@ const Form = () => {
         <form onSubmit={handleSubmit} className={"glassmorph " + styles.form}>
             <ul>
                 <li>
-                    <label>Year:</label>
+                    <label className={styles.feature}>Year:</label>
                     <input type="number" name="year"/>
                 </li>
                 <li>
-                    <label>Special Edition</label>
+                    <label className={styles.feature}>Special Edition</label>
                     <p className={styles.detail}>S, Pro, etc</p>
                     <input type="radio" value="yes" name="special" id="special-yes" defaultChecked/>
                     <label className={"btn blue"} htmlFor="special-yes">Yes</label>
@@ -45,7 +45,7 @@ const Form = () => {
                     <label className={"btn blue"} htmlFor="special-no">No</label>
                 </li>
                 <li>
-                    <label>Large Size</label>
+                    <label className={styles.feature}>Large Size</label>
                     <p className={styles.detail}>Plus, Max, etc</p>
                     <input type="radio" value="yes" name="large" id="large-yes" defaultChecked/>
                     <label className={"btn blue"} htmlFor="large-yes">Yes</label>
@@ -54,7 +54,7 @@ const Form = () => {
                 </li>
             </ul>
             <ul>
-                <p style={{margin: 0, padding: 0}} className={"detail"}>Memory (Storage)</p>
+                <p className={styles.feature} style={{margin: 0, padding: 0}}>Memory (Storage)</p>
                 {memoryItems.map((item) => (
                     <li>
                         <input type="radio" id={item.id} value={item.value} name="memory-item" defaultChecked={item.value === 32}/>
