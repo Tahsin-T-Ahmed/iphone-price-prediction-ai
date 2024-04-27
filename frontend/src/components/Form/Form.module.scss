@@ -12,7 +12,7 @@
         flex-direction: column;
         list-style-type: none;
         justify-content: space-between;
-        gap: 1rem;
+        // gap: 1rem;
 
         &:nth-child(2) { //memory capacity menu
             li {
@@ -20,6 +20,7 @@
 
                 label {
                     display: block;
+                    border-radius: 0px;
                 }
             }
         }
