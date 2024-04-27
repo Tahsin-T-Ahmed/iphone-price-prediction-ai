@@ -5,7 +5,11 @@ export default function Home() {
   return (
     <>
     <Header />
-  <main style={{display: "flex"}}>
+  <main style={{
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center"
+  }}>
       <Form />
     </main>
     </>
