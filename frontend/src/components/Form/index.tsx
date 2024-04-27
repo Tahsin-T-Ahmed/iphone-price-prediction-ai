@@ -29,7 +29,7 @@ const Form = () => {
             })
         }).then(res => res.text())
 
-        let result = parseInt(data)
+        let result = Math.floor(data * 100) / 100
 
         alert(result)
     }
