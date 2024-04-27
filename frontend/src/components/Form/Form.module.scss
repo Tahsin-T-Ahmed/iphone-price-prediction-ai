@@ -13,6 +13,16 @@
         list-style-type: none;
         justify-content: space-between;
         gap: 1rem;
+
+        &:nth-child(2) { //memory capacity menu
+            li {
+                text-align: center;
+
+                label {
+                    display: block;
+                }
+            }
+        }
     }
 
     input[type=radio] {
@@ -37,4 +47,5 @@
     font-size: 0.9rem;
     color: gray;
     margin: 0;
+    padding: 0;
 }

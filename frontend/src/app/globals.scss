@@ -26,8 +26,11 @@ body {
 .blue {
     @include button-selected;
 
+    &:hover {
+        transform: scaleX(1.02) scaleY(1.1);
+    }
+
     &:active {
-        background-color: #00BBFF;
         transform: scaleX(1.03) scaleY(1.2);
     }
 }

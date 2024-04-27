@@ -54,10 +54,11 @@ const Form = () => {
                 </li>
             </ul>
             <ul>
+                <p style={{margin: 0, padding: 0}} className={"detail"}>Memory (Storage)</p>
                 {memoryItems.map((item) => (
                     <li>
                         <input type="radio" id={item.id} value={item.value} name="memory-item" defaultChecked={item.value === 32}/>
-                        <label className={"btn blue"} htmlFor={item.id}>{item.label}</label>
+                        <label htmlFor={item.id}>{item.label}</label>
                     </li>
                 ))}
             </ul>

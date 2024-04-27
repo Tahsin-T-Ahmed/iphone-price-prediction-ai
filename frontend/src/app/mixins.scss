@@ -4,8 +4,12 @@
     transition: 100ms;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    background-color: white;
+    background-color: #DDDDDD;
     color: #000000;
+    
+    &:hover {
+        background-color: #FFFFFF;
+    }
 }
 
 @mixin button-selected {    
@@ -14,6 +18,9 @@
 
     &:hover {
         background-color: #0099DD;
-        transform: scaleX(1.02) scaleY(1.1);
+    }
+
+    &:active {
+        background-color: #00BBFF;
     }
 }
