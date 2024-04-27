@@ -4,8 +4,8 @@ import styles from './Result.module.scss'
 
 const Result = ({formData}) => {
   return (
-    <section className={"glassmorph"}>
-        <h2>${formData.price}</h2>
+    <section className={`glassmorph ${styles["result-section"]}`}>
+        <h3>{formData.price ? `Price: $${formData.price}` : `Enter form details and click "GO" for price`}</h3>
     </section>
   )
 }
