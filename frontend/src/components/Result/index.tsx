@@ -5,7 +5,7 @@ import styles from './Result.module.scss'
 const Result = ({formData}) => {
   return (
     <section className={`glassmorph ${styles["result-section"]}`}>
-        <h3>{formData.price ? `Price: $${formData.price}` : `Enter form details and click "GO" for price`}</h3>
+        <h3>{formData.price ? `Price: $${formData.price}` : `Enter form details and click "GO"`}</h3>
     </section>
   )
 }
