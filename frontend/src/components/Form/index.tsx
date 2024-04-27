@@ -29,12 +29,14 @@ const Form = () => {
         console.log(evt)
     }
 
+    const currentDate = new Date();
+
     return (
         <form onSubmit={handleSubmit} className={"glassmorph " + styles.form}>
             <ul>
                 <li>
                     <label className={styles.feature}>Year:</label>
-                    <input type="number" name="year"/>
+                    <input type="number" name="year" placeholder="YYYY" defaultValue={currentDate.getFullYear() + 1}/>
                 </li>
                 <li>
                     <label className={styles.feature}>Special Edition</label>
