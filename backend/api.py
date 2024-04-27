@@ -50,5 +50,11 @@ def serve_prediction():
 
     return str(pred[0])
 
+@app.route("/graph", methods=["POST"])
+def serve_graph():
+    data = request.json
+
+    print(data)
+
 if "__main__" == __name__:
     app.run(debug=True)
