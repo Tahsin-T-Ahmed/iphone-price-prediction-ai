@@ -3,6 +3,8 @@ from flask_cors import CORS
 import numpy as np
 import pandas as pd
 import joblib
+import psycopg2
+from psycopg2.extras import RealDictCursor
 
 app = Flask(__name__)
 CORS(app)
