@@ -6,6 +6,7 @@ import joblib
 import psycopg2
 from psycopg2.extras import RealDictCursor
 import matplotlib.pyplot as plt
+from io import BytesIO
 
 app = Flask(__name__)
 CORS(app)
