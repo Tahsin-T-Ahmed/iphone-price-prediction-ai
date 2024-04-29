@@ -54,7 +54,7 @@ const Form = ({setFormData}) => {
         })
         .then(res => res.text())
         .then(data => {
-            //update graph state
+            console.log(data)
         })
     }
 
