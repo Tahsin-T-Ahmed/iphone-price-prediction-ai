@@ -51,13 +51,11 @@ const Form = ({setFormData}) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(formData)
-        }).then(res => res.text())
-
-        formData.graph = graph
-
-        setFormData(formData)
-
-        console.log(formData)
+        })
+        .then(res => res.text())
+        .then(data => {
+            //update graph state
+        })
     }
 
     const currentDate = new Date();
