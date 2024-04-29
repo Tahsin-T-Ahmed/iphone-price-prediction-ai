@@ -35,13 +35,15 @@ const Form = ({setFormData}) => {
                 large: formData.large,
                 memory: formData.memory 
             })
-        }).then(res => res.text())
+        })
+        .then(res => res.text())
+        .then(data => {
+            const result = Math.floor(data * 100) / 100
 
-        let result = Math.floor(data * 100) / 100
-
-        formData.price = result 
-
-        setFormData(formData)
+            formData.price = result 
+    
+            setFormData(formData)
+        })
 
         const graph = await fetch("http://127.0.0.1:5000/graph", {
             method: "POST",
