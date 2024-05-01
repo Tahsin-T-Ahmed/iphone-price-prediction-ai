@@ -60,10 +60,16 @@ def serve_graph():
 
     print(data)
 
-    plt.figure()
     plt.scatter(x=np.arange(4), y=[4, 8, 0, 1])
 
-    return data #placeholder
+    img = BytesIO()
+    plt.savefig(img, format="png")
+    img.seek(0)
+
+    plt.clf()
+    plt.close()
+
+    return send_file(img, mimetype="image/png") #placeholder
 
 if "__main__" == __name__:
     app.run(debug=True)
