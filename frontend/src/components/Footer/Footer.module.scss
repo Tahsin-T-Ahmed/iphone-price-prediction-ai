@@ -1,0 +1,24 @@
+@import "@/app/mixins.scss";
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    text-align: center;
+    background: rgba(0,0,0,0.6);
+    padding: 0.5rem;
+    font-size: 0.8rem;
+
+    a {
+        text-decoration: none;
+        transition: 0.2s;
+
+        &:active, &:visited {
+            color: #0088CC;
+        }
+
+        &:hover {
+            color: #00BBFF;
+        }
+    }
+}

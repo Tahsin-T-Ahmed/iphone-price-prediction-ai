@@ -11,13 +11,15 @@ body {
 
     font-family: "Roboto", sans-serif;
     color: white;
+
+    padding-bottom: 2rem;
 }
 
 .glassmorph {
     background: rgba(0,0,0,0.6);
     border-radius: 2rem;
     padding: 1.5rem;
-    margin-top: 1.5rem;
+    transform: scale(0.9);
 }
 
 .btn {
