@@ -30,8 +30,8 @@ def transform_dataset(ds):
     #remove C and R variants
     ds = ds.loc[~(('C' == ds["edition"]) | ('R' == ds["edition"]))]
 
-    #remove Mini variants
-    # ds = ds.loc[~("Mini" == ds["scale"])]
+    # remove Mini variants
+    ds = ds.loc[~("Mini" == ds["scale"])]
 
     #remove variants below 32GB
     ds = ds.loc[~(ds["memory"] < 32)]
@@ -100,10 +100,18 @@ def generate_graph(data):
         data[key] = int(data[key])
         filter = filter.loc[(filter[key] == data[key])]
 
-    #add user's value to filter for graphing
-    filter.loc[len(filter), :] = data
+    #replace NaN values with empty strings
+    filter = filter.fillna(' ')
 
-    print(filter)
+    #process annotation for data points
+    filter["annotation"] = filter["version"]
+    filter["annotation"] += filter["edition"].apply(lambda val: f' {val}' if val else '')
+    filter["annotation"] += filter["scale"].apply(lambda val: f'\n{val}' if val else '')
+
+    #add user's value to filter for graphing
+    data["annotation"] = "Yours"
+    data["version"] = "user"
+    filter.loc[len(filter), :] = data
 
     #compile attributes of one-hot features (special, large) for string-building title
     attributes_list = []
@@ -119,10 +127,22 @@ def generate_graph(data):
 
     attributes = ', '.join(attributes_list)
 
-    plt.scatter(x=filter["year"], y=filter["price"])
-    plt.ylim(250, data["price"] + 100)
+    plt.scatter(x=filter["year"], 
+                y=filter["price"],
+                c=['orange' if "user" == version else "blue" for version in filter["version"]],
+                s=[150 if "user" == version else 50 for version in filter["version"]])
+    plt.ylim(0, data["price"] + 100)
     title = f"{attributes} iPhones with {data['memory']}GB"
     plt.title(title)
+
+    max_price = filter["price"].max()
+    print(max_price)
+
+    for i, row in filter.iterrows():
+        plt.annotate(row["annotation"],
+                     (row["year"], row["price"] - (max_price // 9)),
+                     ha="center",
+                     fontsize=10)
 
     img = BytesIO()
     plt.savefig(img, format="png")
