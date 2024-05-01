@@ -12,7 +12,7 @@ const memoryItems = [
     {value: 1024, label: "1024 GB (1 TB)", id: "GB_1024"},
 ]
 
-const Form = ({setFormData}) => {
+const Form = ({setFormData, setGraphImg}) => {
 
     async function handleSubmit(evt) {
         evt.preventDefault()
@@ -54,7 +54,7 @@ const Form = ({setFormData}) => {
         })
         .then(res => res.blob())
         .then(blob => {
-            console.log(blob)
+            setGraphImg(URL.createObjectURL(blob))
         })
     }
 

@@ -13,6 +13,8 @@ export default function Home() {
     price: null,
     graph: null
   })
+
+  const [graphImg, setGraphImg] = useState('')
   
   return (
     <>
@@ -23,8 +25,8 @@ export default function Home() {
     justifyContent: "space-evenly",
 
   }}>
-    <Form setFormData={setFormData}/>
-    <Result formData={formData}/>
+    <Form setFormData={setFormData} setGraphImg={setGraphImg}/>
+    <Result formData={formData} graphImg={graphImg}/>
     </main>
     </>
   );
