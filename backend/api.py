@@ -5,6 +5,8 @@ import pandas as pd
 import joblib
 import psycopg2
 from psycopg2.extras import RealDictCursor
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from io import BytesIO
 
@@ -50,7 +52,7 @@ def serve_prediction():
     #produce prediction
     pred = model.predict(pd.DataFrame(df))
 
-    print(df)
+    # print(df)
 
     return str(pred[0])
 
@@ -58,7 +60,7 @@ def serve_prediction():
 def serve_graph():
     data = request.json
 
-    print(data)
+    # print(data)
 
     plt.scatter(x=np.arange(4), y=[4, 8, 0, 1])
 
