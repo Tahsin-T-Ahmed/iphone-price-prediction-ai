@@ -19,6 +19,20 @@ model = joblib.load("./iphones-linear-regression.pkl")
 #load standard scaler for model
 scaler = joblib.load("./scaler.joblib")
 
+#import full dataset
+iphones = pd.read_csv("iphone_releases.csv")
+
+def transform_dataset(ds):
+    #remove date, only keep year
+    ds["year"] = ds["date"].str[:4]
+    ds.drop("date", axis=1, inplace=True)
+
+    return ds
+
+iphones = transform_dataset(iphones)
+
+print(iphones)
+
 @app.route("/pred", methods=["POST"])
 def serve_prediction():
     data = request.json
@@ -74,8 +88,6 @@ def serve_graph():
     data = request.json
 
     df = pd.DataFrame(data, index=[0])
-
-    print(df)
 
     img = generate_graph(df)
 
