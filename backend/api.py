@@ -87,7 +87,8 @@ def serve_prediction():
 
     return str(pred[0])
 
-def generate_graph(df):
+def generate_graph(df, data):
+    filter = df.copy()
 
     plt.scatter(x=np.arange(7), y=[4, 8, 0, 1, 9, 9, 6])
 
@@ -106,7 +107,7 @@ def serve_graph():
 
     df = pd.DataFrame(data, index=[0])
 
-    img = generate_graph(df)
+    img = generate_graph(df, data)
 
     return send_file(img, mimetype="image/png") #placeholder
 
