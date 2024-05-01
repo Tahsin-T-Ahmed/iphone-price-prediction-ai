@@ -87,7 +87,7 @@ def serve_prediction():
 
     return str(pred[0])
 
-def generate_graph(df, data):
+def generate_graph(data):
     filter = iphones.copy()
 
     #prepare keys for filter
@@ -95,11 +95,21 @@ def generate_graph(df, data):
     keys.remove("year")
     keys.remove("price")
 
+    #filter dataset based on user's selected values
     for key in keys:
         data[key] = int(data[key])
         filter = filter.loc[(filter[key] == data[key])]
 
-    plt.scatter(x=np.arange(7), y=[4, 8, 0, 1, 9, 9, 6])
+    data["version"] = "YOURS"
+
+    #add user's value to filter for graphing
+    filter.loc[len(filter), :] = data
+
+    print(filter)
+
+    plt.scatter(x=filter["year"], y=filter["price"])
+    plt.ylim(0, data["price"] + 100)
+    plt.title("Similar iPhones to your selection")
 
     img = BytesIO()
     plt.savefig(img, format="png")
@@ -116,7 +126,7 @@ def serve_graph():
 
     df = pd.DataFrame(data, index=[0])
 
-    img = generate_graph(df, data)
+    img = generate_graph(data)
 
     return send_file(img, mimetype="image/png") #placeholder
 
