@@ -27,6 +27,11 @@ def transform_dataset(ds):
     ds["year"] = ds["date"].str[:4]
     ds.drop("date", axis=1, inplace=True)
 
+    #remove C and R variants
+    ds = ds.loc[~(('C' == ds["edition"]) | ('R' == ds["edition"]))]
+
+    
+
     return ds
 
 iphones = transform_dataset(iphones)
