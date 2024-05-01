@@ -56,7 +56,7 @@ def serve_prediction():
 
     return str(pred[0])
 
-def generate_graph():
+def generate_graph(df):
 
     plt.scatter(x=np.arange(7), y=[4, 8, 0, 1, 9, 9, 6])
 
@@ -77,7 +77,7 @@ def serve_graph():
 
     print(df)
 
-    img = generate_graph()
+    img = generate_graph(df)
 
     return send_file(img, mimetype="image/png") #placeholder
 
