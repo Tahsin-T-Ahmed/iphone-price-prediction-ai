@@ -88,7 +88,16 @@ def serve_prediction():
     return str(pred[0])
 
 def generate_graph(df, data):
-    filter = df.copy()
+    filter = iphones.copy()
+
+    #prepare keys for filter
+    keys = [key for key in data.keys()]
+    keys.remove("year")
+    keys.remove("price")
+
+    for key in keys:
+        data[key] = int(data[key])
+        filter = filter.loc[(filter[key] == data[key])]
 
     plt.scatter(x=np.arange(7), y=[4, 8, 0, 1, 9, 9, 6])
 
@@ -111,5 +120,5 @@ def serve_graph():
 
     return send_file(img, mimetype="image/png") #placeholder
 
-# if "__main__" == __name__:
-#     app.run(debug=True)
+if "__main__" == __name__:
+    app.run(debug=True)
