@@ -13,10 +13,6 @@ export default function Home() {
     price: null,
     graph: null
   })
-
-  function handleFormReturn(data) {
-    setFormData(data)
-  }
   
   return (
     <>
