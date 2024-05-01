@@ -73,7 +73,9 @@ def generate_graph():
 def serve_graph():
     data = request.json
 
-    # print(data)
+    df = pd.DataFrame(data, index=[0])
+
+    print(df)
 
     img = generate_graph()
 
