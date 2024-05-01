@@ -100,16 +100,29 @@ def generate_graph(data):
         data[key] = int(data[key])
         filter = filter.loc[(filter[key] == data[key])]
 
-    data["version"] = "YOURS"
-
     #add user's value to filter for graphing
     filter.loc[len(filter), :] = data
 
     print(filter)
 
+    #compile attributes of one-hot features (special, large) for string-building title
+    attributes_list = []
+    if data["special"]:
+        attributes_list.append("Special-Edition")
+    else:
+        attributes_list.append("Standard-Edition")
+
+    if data["large"]:
+        attributes_list.append("Large-Sized")
+    else:
+        attributes_list.append("Regular-Sized")
+
+    attributes = ', '.join(attributes_list)
+
     plt.scatter(x=filter["year"], y=filter["price"])
-    plt.ylim(0, data["price"] + 100)
-    plt.title("Similar iPhones to your selection")
+    plt.ylim(250, data["price"] + 100)
+    title = f"{attributes} iPhones with {data['memory']}GB"
+    plt.title(title)
 
     img = BytesIO()
     plt.savefig(img, format="png")
