@@ -10,8 +10,7 @@ export default function Home() {
     special: null,
     large: null,
     memory: null,
-    price: null,
-    graph: null
+    price: null
   })
 
   const [graphImg, setGraphImg] = useState('')
