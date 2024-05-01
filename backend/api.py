@@ -37,12 +37,12 @@ def transform_dataset(ds):
     ds = ds.loc[~(ds["memory"] < 32)]
 
     #transform "edition" to "special" and one-hot
-    ds.rename(columns={"edition": "special"}, inplace=True)
+    ds["special"] = ds["edition"]
     ds.loc[(("S" == ds["special"]) | ("Pro" == ds["special"])), "special"] = 1
     ds.loc[(ds["special"] != 1), "special"] = 0
 
     #transform "scale" to "large" and one-hot
-    ds.rename(columns={"scale": "large"}, inplace=True)
+    ds["large"] = ds["scale"]
     ds.loc[(("Plus" == ds["large"]) | ("Max" == ds["large"])), "large"] = 1
     ds.loc[(ds["large"] != 1), "large"] = 0
 
