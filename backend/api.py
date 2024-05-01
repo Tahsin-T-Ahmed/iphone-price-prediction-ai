@@ -30,13 +30,25 @@ def transform_dataset(ds):
     #remove C and R variants
     ds = ds.loc[~(('C' == ds["edition"]) | ('R' == ds["edition"]))]
 
-    
+    #remove Mini variants
+    # ds = ds.loc[~("Mini" == ds["scale"])]
+
+    #remove variants below 32GB
+    ds = ds.loc[~(ds["memory"] < 32)]
+
+    #transform "edition" to "special" and one-hot
+    ds.rename(columns={"edition": "special"}, inplace=True)
+    ds.loc[(("S" == ds["special"]) | ("Pro" == ds["special"])), "special"] = 1
+    ds.loc[(ds["special"] != 1), "special"] = 0
+
+    #transform "scale" to "large" and one-hot
+    ds.rename(columns={"scale": "large"}, inplace=True)
+    ds.loc[(("Plus" == ds["large"]) | ("Max" == ds["large"])), "large"] = 1
+    ds.loc[(ds["large"] != 1), "large"] = 0
 
     return ds
 
 iphones = transform_dataset(iphones)
-
-print(iphones)
 
 @app.route("/pred", methods=["POST"])
 def serve_prediction():
@@ -98,5 +110,5 @@ def serve_graph():
 
     return send_file(img, mimetype="image/png") #placeholder
 
-if "__main__" == __name__:
-    app.run(debug=True)
+# if "__main__" == __name__:
+#     app.run(debug=True)
