@@ -56,13 +56,9 @@ def serve_prediction():
 
     return str(pred[0])
 
-@app.route("/graph", methods=["POST"])
-def serve_graph():
-    data = request.json
+def generate_graph():
 
-    # print(data)
-
-    plt.scatter(x=np.arange(4), y=[4, 8, 0, 1])
+    plt.scatter(x=np.arange(7), y=[4, 8, 0, 1, 9, 9, 6])
 
     img = BytesIO()
     plt.savefig(img, format="png")
@@ -70,6 +66,16 @@ def serve_graph():
 
     plt.clf()
     plt.close()
+
+    return img
+
+@app.route("/graph", methods=["POST"])
+def serve_graph():
+    data = request.json
+
+    # print(data)
+
+    img = generate_graph()
 
     return send_file(img, mimetype="image/png") #placeholder
 
