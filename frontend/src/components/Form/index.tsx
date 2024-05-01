@@ -24,7 +24,7 @@ const Form = ({setFormData}) => {
             memory: evt.target["memory-item"].value
         }
 
-        const data = await fetch("http://127.0.0.1:5000/pred", {
+        await fetch("http://127.0.0.1:5000/pred", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -45,16 +45,16 @@ const Form = ({setFormData}) => {
             setFormData(formData)
         })
 
-        const graph = await fetch("http://127.0.0.1:5000/graph", {
+        await fetch("http://127.0.0.1:5000/graph", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(formData)
         })
-        .then(res => res.text())
-        .then(data => {
-            console.log(data)
+        .then(res => res.blob())
+        .then(blob => {
+            console.log(blob)
         })
     }
 
