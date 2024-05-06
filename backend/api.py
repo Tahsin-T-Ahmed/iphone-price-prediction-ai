@@ -1,5 +1,6 @@
 from flask import Flask, request, send_file
 # from flask_cors import CORS
+import os
 import numpy as np
 import pandas as pd
 import joblib
@@ -164,4 +165,5 @@ def serve_graph():
     return send_file(img, mimetype="image/png") #placeholder
 
 if "__main__" == __name__:
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
