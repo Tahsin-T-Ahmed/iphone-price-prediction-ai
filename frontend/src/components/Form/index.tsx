@@ -94,7 +94,7 @@ const Form = ({setFormData, setGraphImg}) => {
             <ul>
                 <p className={styles.feature} style={{margin: 0, padding: 0}}>Memory (Storage)</p>
                 {memoryItems.map((item) => (
-                    <li>
+                    <li key={item.id}>
                         <input type="radio" id={item.id} value={item.value} name="memory-item" defaultChecked={item.value === 32}/>
                         <label htmlFor={item.id} style={{
                             borderRadius: (item.value === 32 ? "0.5rem 0.5rem 0 0" : (item.value === 1024 ? "0 0 0.5rem 0.5rem" : "0px"))
