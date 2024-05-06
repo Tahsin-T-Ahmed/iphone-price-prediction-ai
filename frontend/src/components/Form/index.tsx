@@ -1,4 +1,6 @@
 "use client"
+import type {FormData} from "@/model"
+import type {FC} from "react"
 import { useState } from "react"
 import "@/app/globals.scss"
 import styles from "./Form.module.scss"
@@ -12,16 +14,30 @@ const memoryItems = [
     {value: 1024, label: "1024 GB (1 TB)", id: "GB_1024"},
 ]
 
-const Form = ({setFormData, setGraphImg}) => {
+type FormProps = {
+    setFormData: (data:FormData) => void,
+    setGraphImg: (img:string) => void
+}
 
-    async function handleSubmit(evt) {
+const Form:FC<FormProps> = ({setFormData, setGraphImg}) => {
+
+    async function handleSubmit(evt:React.FormEvent) {
         evt.preventDefault()
 
-        const formData = {
-            year: evt.target.year.value,
-            special: Number(evt.target.special.value === "yes") ? 1 : 0,
-            large: Number(evt.target.large.value === "yes") ? 1 : 0,
-            memory: evt.target["memory-item"].value
+        const formData = { 
+            //@ts-ignore
+            year: evt.target.year.value, 
+            
+            //@ts-ignore
+            special: Number(evt.target.special.value === "yes") ? 1 : 0, 
+            
+            //@ts-ignore
+            large: Number(evt.target.large.value === "yes") ? 1 : 0, 
+            
+            //@ts-ignore
+            memory: evt.target["memory-item"].value,
+            
+            price: 0
         }
 
         await fetch("/api/pred", {
@@ -37,10 +53,10 @@ const Form = ({setFormData, setGraphImg}) => {
             })
         })
         .then(res => res.text())
-        .then(data => {
-            const result = Math.floor(data * 100) / 100
+        .then((data:string) => {
+            const result = Math.floor(Number(data) * 100) / 100
 
-            formData.price = result 
+            formData.price = result
     
             setFormData(formData)
         })
