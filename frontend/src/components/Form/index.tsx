@@ -1,9 +1,8 @@
-"use client"
-import type {FormData} from "@/model"
+import type {FormData} from "../../model"
 import type {FC} from "react"
 import { useState } from "react"
-import "@/app/globals.scss"
-import styles from "./Form.module.scss"
+// import "/globals.scss"
+import styles from "./styles.module.scss"
 
 const memoryItems = [
     {value: 32, label: "32 GB", id: "GB_32"},

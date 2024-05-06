@@ -1,5 +1,5 @@
-import styles from "./Header.module.scss"
-import { BsApple } from "react-icons/bs";
+import styles from "./styles.module.scss"
+import { ReactComponent as BsApple } from "./icon.svg";
 
 const Header = () => {
   return (

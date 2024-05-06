@@ -1,8 +1,8 @@
 "use client"
-import type {FormData} from "@/model"
+import type {FormData} from "../../model"
 import type {FC} from "react"
-import "@/app/globals.scss"
-import styles from './Result.module.scss'
+// import "../../globals.scss"
+import styles from './styles.module.scss'
 
 type ResultProps = {
   formData: FormData,
