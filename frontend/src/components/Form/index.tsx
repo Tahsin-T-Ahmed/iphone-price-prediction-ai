@@ -24,7 +24,7 @@ const Form = ({setFormData, setGraphImg}) => {
             memory: evt.target["memory-item"].value
         }
 
-        await fetch("http://127.0.0.1:5000/pred", {
+        await fetch("/api/pred", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -45,7 +45,7 @@ const Form = ({setFormData, setGraphImg}) => {
             setFormData(formData)
         })
 
-        await fetch("http://127.0.0.1:5000/graph", {
+        await fetch("/api/graph", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

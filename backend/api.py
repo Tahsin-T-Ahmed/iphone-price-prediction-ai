@@ -1,5 +1,5 @@
 from flask import Flask, request, send_file
-from flask_cors import CORS
+# from flask_cors import CORS
 import numpy as np
 import pandas as pd
 import joblib
@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 
 #load predictive model (linear regression)
 model = joblib.load("./iphones-linear-regression.pkl")
