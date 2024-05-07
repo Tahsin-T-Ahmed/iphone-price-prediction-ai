@@ -1,7 +1,5 @@
 import type {FormData} from "../../model"
 import type {FC} from "react"
-import { useState } from "react"
-// import "/globals.scss"
 import styles from "./styles.module.scss"
 
 const memoryItems = [
@@ -14,7 +12,7 @@ const memoryItems = [
 ]
 
 type FormProps = {
-    handleSubmit: (data:any) => void;
+    handleSubmit: (data:FormData) => void;
 }
 
 type FormElement = EventTarget & {
