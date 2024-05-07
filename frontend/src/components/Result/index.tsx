@@ -5,15 +5,16 @@ import type {FC} from "react"
 import styles from './styles.module.scss'
 
 type ResultProps = {
-  formData: FormData,
-  graphImg: string
+  formData: FormData;
+  graphImg: string;
+  isLoading: boolean;
 }
 
-const Result:FC<ResultProps> = ({formData, graphImg}) => {
+const Result:FC<ResultProps> = ({formData, graphImg, isLoading}) => {
   return (
     <section className={`glassmorph ${styles["result-section"]}`}>
         <h3>{formData.price ? `Price: $${formData.price}` : `Enter form details and click "GO"`}</h3>
-        {graphImg && <img src={graphImg} />}
+        {!isLoading ? <img src={graphImg} /> : <div className={styles.loading}>Loading...</div>}
     </section>
   )
 }

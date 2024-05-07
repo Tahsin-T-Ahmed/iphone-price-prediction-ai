@@ -15,6 +15,8 @@ export default function Home() {
   })
 
   const [graphImg, setGraphImg] = useState("")
+
+  const [isLoading, setIsLoading] = useState(false)
   
   return (
     <>
@@ -25,8 +27,8 @@ export default function Home() {
       justifyContent: "space-evenly",
 
     }}>
-    <Form setFormData={setFormData} setGraphImg={setGraphImg}/>
-    <Result formData={formData} graphImg={graphImg}/>
+    <Form setFormData={setFormData} setGraphImg={setGraphImg} setIsLoading={setIsLoading}/>
+    <Result formData={formData} graphImg={graphImg} isLoading={isLoading}/>
     <Footer />
     </main>
     </>

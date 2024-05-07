@@ -1,9 +1,12 @@
 .result-section {
-    text-align: center;
     min-width: 15rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     
     h3 {
         margin: 0;
+        flex: 0 0 auto;
     }
 
     img {
@@ -11,4 +14,10 @@
         width: 100%;
         max-width: 30rem;
     }
+}
+
+.loading {
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
 }

@@ -14,14 +14,17 @@ const memoryItems = [
 ]
 
 type FormProps = {
-    setFormData: (data:FormData) => void,
-    setGraphImg: (img:string) => void
+    setFormData: (data:FormData) => void;
+    setGraphImg: (img:string) => void;
+    setIsLoading: (bool:boolean) => void;
 }
 
-const Form:FC<FormProps> = ({setFormData, setGraphImg}) => {
+const Form:FC<FormProps> = ({setFormData, setGraphImg, setIsLoading}) => {
 
     async function handleSubmit(evt:React.FormEvent) {
         evt.preventDefault()
+
+        setIsLoading(true)
 
         const formData = { 
             //@ts-ignore
@@ -70,6 +73,7 @@ const Form:FC<FormProps> = ({setFormData, setGraphImg}) => {
         .then(res => res.blob())
         .then(blob => {
             setGraphImg(URL.createObjectURL(blob))
+            setIsLoading(false)
         })
     }
 
