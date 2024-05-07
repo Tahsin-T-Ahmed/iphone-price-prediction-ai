@@ -14,73 +14,37 @@ const memoryItems = [
 ]
 
 type FormProps = {
-    setFormData: (data:FormData) => void;
-    setGraphImg: (img:string) => void;
-    setIsLoading: (bool:boolean) => void;
+    handleSubmit: (data:any) => void;
 }
 
-const Form:FC<FormProps> = ({setFormData, setGraphImg, setIsLoading}) => {
+type FormElement = EventTarget & {
+    year: HTMLInputElement
+    special: HTMLInputElement
+    large: HTMLInputElement
+    memory: HTMLInputElement
+}
 
-    async function handleSubmit(evt:React.FormEvent) {
+
+
+const Form:FC<FormProps> = ({handleSubmit}) => {
+
+    const handleFormSubmit = (evt:React.FormEvent) => {
         evt.preventDefault()
 
-        setIsLoading(true)
+        const {year, special, large, memory} = evt.target as FormElement
 
-        const formData = { 
-            //@ts-ignore
-            year: evt.target.year.value, 
-            
-            //@ts-ignore
-            special: Number(evt.target.special.value === "yes") ? 1 : 0, 
-            
-            //@ts-ignore
-            large: Number(evt.target.large.value === "yes") ? 1 : 0, 
-            
-            //@ts-ignore
-            memory: evt.target["memory-item"].value,
-            
-            price: 0
-        }
-
-        await fetch("/api/pred", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                year: formData.year,
-                special: formData.special,
-                large: formData.large,
-                memory: formData.memory 
-            })
-        })
-        .then(res => res.text())
-        .then((data:string) => {
-            const result = Math.floor(Number(data) * 100) / 100
-
-            formData.price = result
-    
-            setFormData(formData)
-        })
-
-        await fetch("/api/graph", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(res => res.blob())
-        .then(blob => {
-            setGraphImg(URL.createObjectURL(blob))
-            setIsLoading(false)
+        handleSubmit({
+            year: year.value,
+            special: Number(special.value === "yes") ? 1 : 0,
+            large: Number(large.value === "yes") ? 1 : 0,
+            memory: memory.value
         })
     }
 
     const currentDate = new Date();
 
     return (
-        <form onSubmit={handleSubmit} className={"glassmorph " + styles.form}>
+        <form onSubmit={handleFormSubmit} className={"glassmorph " + styles.form}>
             <ul>
                 <li>
                     <label className={styles.feature}>Year:</label>
@@ -114,7 +78,7 @@ const Form:FC<FormProps> = ({setFormData, setGraphImg, setIsLoading}) => {
                 <p className={styles.feature} style={{margin: 0, padding: 0}}>Memory (Storage)</p>
                 {memoryItems.map((item) => (
                     <li key={item.id}>
-                        <input type="radio" id={item.id} value={item.value} name="memory-item" defaultChecked={item.value === 32}/>
+                        <input type="radio" id={item.id} value={item.value} name="memory" defaultChecked={item.value === 32}/>
                         <label htmlFor={item.id} style={{
                             borderRadius: (item.value === 32 ? "0.5rem 0.5rem 0 0" : (item.value === 1024 ? "0 0 0.5rem 0.5rem" : "0px"))
                         }}>{item.label}</label>

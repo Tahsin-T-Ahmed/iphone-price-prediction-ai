@@ -1,19 +1,16 @@
-"use client"
-import type {FormData} from "../../model"
 import type {FC} from "react"
-// import "../../globals.scss"
 import styles from './styles.module.scss'
 
 type ResultProps = {
-  formData: FormData;
+  price: number;
   graphImg: string;
   isLoading: boolean;
 }
 
-const Result:FC<ResultProps> = ({formData, graphImg, isLoading}) => {
+const Result:FC<ResultProps> = ({price, graphImg, isLoading}) => {
   return (
     <section className={`glassmorph ${styles["result-section"]}`}>
-        <h3>{formData.price ? `Price: $${formData.price}` : `Enter form details and click "GO"`}</h3>
+        <h3>{price ? `Price: $${price}` : `Enter form details and click "GO"`}</h3>
         {!isLoading ? <img src={graphImg} /> : <div className={styles.loading}>Loading...</div>}
     </section>
   )
