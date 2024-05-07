@@ -30,17 +30,14 @@ export default function Home() {
   
   return (
     <>
-    <Header />
-    <main style={{
-      display: "flex",
-      flexWrap: "wrap",
-      justifyContent: "space-evenly",
-
-    }}>
-    <Form handleSubmit={handleSubmit} />
-    <Result price={price} graphImg={graphImg} isLoading={isLoading}/>
-    <Footer />
-    </main>
+      <Header />
+      <main>
+        <ContentWrapper>
+          <Form handleSubmit={handleSubmit} />
+          <Result price={price} graphImg={graphImg} isLoading={isLoading}/>
+        </ContentWrapper>
+      </main>
+      <Footer />
     </>
   );
 }

@@ -10,8 +10,14 @@ type ResultProps = {
 const Result:FC<ResultProps> = ({price, graphImg, isLoading}) => {
   return (
     <section className={`glassmorph ${styles["result-section"]}`}>
-        <h3>{price ? `Price: $${price}` : `Enter form details and click "GO"`}</h3>
-        {!isLoading ? <img src={graphImg} /> : <div className={styles.loading}>Loading...</div>}
+        <h3 className={styles.title}>{price ? `Price: $${price}` : `Enter form details and click "GO"`}</h3>
+        <div className={styles.illustration}>
+          {(isLoading || graphImg) && (
+            <>
+              {!isLoading ? <img className={styles.img} src={graphImg} alt={"Price Chart"}/> : <div className={styles.loading}>Loading...</div>}
+            </>
+          )}
+        </div>
     </section>
   )
 }

@@ -3,21 +3,34 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    
-    h3 {
-        margin: 0;
-        flex: 0 0 auto;
-    }
+    flex: 1 1 auto;
+    max-width: 30rem;
+}
 
-    img {
-        margin-top: 1rem;
-        width: 100%;
-        max-width: 30rem;
-    }
+    
+.title {
+    margin: 0;
+    flex: 0 0 auto;
+}
+
+.illustration {
+    margin-top: 1rem;
+    padding-top: calc(3/4 * 100%);
+    position: relative;
+    width: 100%;
+}
+
+.img, .loading {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    max-width: 30rem;
+    top: 0;
+    left: 0;
 }
 
 .loading {
-    flex: 1 1 100%;
-    display: flex;
-    align-items: center;
+    font-size: 1.2rem;
+    text-align: center;
+    top: calc(50% - 0.5em);
 }
