@@ -1,10 +1,10 @@
-# Artificial Intelligence - iPhone Price Predictor
+# iPhone4Cast AI - iPhone Price Predictor
 
-## Technologies: Python, React, SCSS, Postgres, Scikit-Learn, NextJS, JavaScript. 
+## Technologies: Python, React, SCSS, Postgres, Scikit-Learn, TypeScript. 
 ### Languages: Python, JavaScript, SASS (SCSS), PostgreSQL
 ### Back-end: Flask, Scikit-Learn, Pandas, Joblib
-### Front-end: React (NextJS), SASS (SCSS)
-### Data Visualization: Matplotlib, Seaborn(Python)
+### Front-end: React, SASS (SCSS)
+### Data Visualization: Matplotlib, Seaborn (Python)
 
 ## Description:
 
