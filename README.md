@@ -1,4 +1,5 @@
 # iPhone4Cast AI - iPhone Price Predictor
+## Machine Learning, Data Science, Web Development, REST API Development
 
 ## Technologies: Python, React, SCSS, Postgres, Scikit-Learn, TypeScript. 
 ### Languages: Python, JavaScript, SASS (SCSS), PostgreSQL
