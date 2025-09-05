@@ -4,8 +4,6 @@ import os
 import numpy as np
 import pandas as pd
 import joblib
-import psycopg2
-from psycopg2.extras import RealDictCursor
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
